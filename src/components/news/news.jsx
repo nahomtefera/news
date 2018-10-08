@@ -13,7 +13,7 @@ export default class News extends Component {
         super(props)
 
         this.state = {
-            news: []
+            news: null
         }
     }
 
@@ -28,8 +28,14 @@ export default class News extends Component {
 
     render() {
         return (
-            <div>
-                News are gonna be displayed here
+            <div className="news-container">
+                {
+                    this.state.news !== null
+                        ? this.state.news.articles.map((article, index)=>{
+                            return <Article key={index} data={article} />
+                        })
+                        : "No articles"
+                }
             </div>
         )
     }
