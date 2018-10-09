@@ -29,6 +29,7 @@ class App extends Component {
       sortBy: 'publishedAt',
       pageSize: 15
     }).then(response => {
+      console.log(response)
       this.setState({articles: response, lastSearch:{query: query, sources: sources}})
     }).catch((e)=>{console.log(e)});
   }

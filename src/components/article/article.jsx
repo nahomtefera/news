@@ -3,22 +3,6 @@ import './article.css';
 
 export default class Article extends Component {
     
-    componentWillMount(){
-        console.log(this.props.data)
-        /*
-            author,
-            content,
-            description,
-            source
-                id: usa-today,
-                name: USA Today
-            title,
-            url,
-            urlToImage,
-            publishedAt
-        */ 
-    }
-
     render() {
         return(
             <div className="article-container">
@@ -31,7 +15,7 @@ export default class Article extends Component {
                     </div>
                 </div>
                 <div style={{clear:"both"}}></div>
-                <h3 className="article-title">{this.props.data.title}</h3>
+                <h3 className="article-title" onClick={this.props.previewArticle}>{this.props.data.title}</h3>
                 <p className="article-description">{this.props.data.description}</p>
                 <div>
                     <div className="article-author">
