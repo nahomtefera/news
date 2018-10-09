@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import sourcesList from './sourcesList';
 import './search.css';
 
 export default class Search extends Component {
@@ -6,11 +7,16 @@ export default class Search extends Component {
         super(props);
 
         this.state = {
-            query: ""
+            query: "",
+            sources: null
         }
 
         this.handleInput = this.handleInput.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
+    }
+
+    componentWillMount(){
+        console.log(sourcesList)
     }
 
     handleInput(e){
