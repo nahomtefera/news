@@ -1,2 +1,16 @@
 .news-container {
 }
+
+.no-articles {
+    width: 500px;
+    margin: 4em auto;
+    background: #fdfdfd;
+    border: 1px solid #eaeaea;
+    text-align: center;
+    padding: 40px;
+    text-transform: uppercase;
+    color: #888;
+    font-weight: 600;
+    letter-spacing: .7px;
+    border-radius: 5px;
+}

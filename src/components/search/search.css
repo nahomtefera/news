@@ -1,0 +1,27 @@
+.input-container {
+    width: 400px;
+    max-width: 90%;
+    margin: 3em auto;
+}
+
+.search-input {
+    width: 300px;
+    max-width: 90%;
+    padding: 10px;
+    font-size: 1em;
+}
+
+.submit-button {
+    padding: 10px 20px;
+    font-size: 1em;
+    font-weight: bold;
+    text-transform: uppercase;
+    background: #fff;
+    border: 1px solid #eaeaea;
+    color: #8a8a8a;
+    cursor: pointer;
+}
+
+.submit-button:hover {
+    color: #5290d4;
+}

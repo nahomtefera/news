@@ -34,6 +34,15 @@ export default class Article extends Component {
                 <h3 className="article-title">{this.props.data.title}</h3>
                 <p className="article-description">{this.props.data.description}</p>
                 <div>
+                    <div className="article-author">
+                        {
+                            this.props.data.author !== null
+                                ? this.props.data.author.indexOf("http") !== -1
+                                    ? <a target="blank" href={this.props.data.author}>Link to Author</a>
+                                    : this.props.data.author
+                                : ""
+                        }
+                    </div>
                     <div className="article-url">
                         <a target="blank" href={this.props.data.url}>Go to Source</a>
                     </div>

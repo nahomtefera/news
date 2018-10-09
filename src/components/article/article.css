@@ -42,6 +42,14 @@
     font-size: .85em;
 }
 
+.article-author {
+    display: inline-block;
+    padding: 10px 20px 15px 20px;
+    float: left;
+    font-weight: 600;
+    font-size: .85em;
+}
+
 .article-url {
     display: inline-block;
     padding: 10px 20px 15px 20px;
@@ -50,7 +58,7 @@
     font-size: .85em;
 }
 
-.article-url a {
+.article-url a, .article-author a {
     text-decoration: none;
     color: #00796b;
 }
