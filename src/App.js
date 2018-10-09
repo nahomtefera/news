@@ -20,18 +20,29 @@ class App extends Component {
 
     this.updateArticles = this.updateArticles.bind(this);
     this.updatePage = this.updatePage.bind(this);
+    this.topHeadlines = this.topHeadlines.bind(this)
   }
 
   componentWillMount(){
+    this.topHeadlines()
+  }
+
+  topHeadlines(sources) {
     newsapi.v2.topHeadlines({
+      sources: sources,
       language: 'en',
       country: 'us'
     }).then(response => {
       this.setState({articles: response, loading: false})
     });
-  }
+  } 
 
   updateArticles(query, sources){
+
+    if(query.length === 0) {
+      this.topHeadlines(sources)
+    } 
+
     this.setState({loading:true}, ()=>{
       newsapi.v2.everything({
         q: query,

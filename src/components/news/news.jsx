@@ -79,7 +79,7 @@ export default class News extends Component {
                                         ? this.state.showPreview.content.slice(0, 260)
                                         : null 
                                     }
-                                    <a className="preview-link" target='blank' href={this.state.showPreview.url}>Keep reading</a>    
+                                    <a className="preview-link" target='blank' href={this.state.showPreview.url}> Keep reading</a>    
                                 </p>
                                         
                                 <div className="preview-source">

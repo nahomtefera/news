@@ -26,9 +26,7 @@ export default class Search extends Component {
     handleSubmit() {
         let query = this.state.query;
         let sources = this.state.sources;
-        
-        if(query.length < 4) return; 
-        
+                
         this.props.updateArticles(query, sources)
         this.setState({lastSourcesUsed: sources})
     }
@@ -52,7 +50,7 @@ export default class Search extends Component {
                     <button onClick={this.handleSubmit} className="submit-button"> 
                         {
                             this.state.sources !== this.state.lastSourcesUsed 
-                                ? "Update"
+                                ? "Refresh"
                                 : "Go"
                         }
                     </button>

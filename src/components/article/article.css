@@ -9,6 +9,10 @@
     color: #333;
 }
 
+.article-container:hover {
+    box-shadow: 0 0 4px 0px #0f94f630;
+}
+
 .article-source {
     display: inline-block;
     float: left;
@@ -31,7 +35,7 @@
 }
 
 .article-title {
-    font-weight: 600;
+    font-weight: 500;
     font-family: Arial, Helvetica, sans-serif;
     margin: 0;
     padding: 5px 20px;
@@ -43,8 +47,10 @@
 .article-description {
     font-weight: 300;
     padding: 2px 20px;
-    font-size: .85em;
+    font-size: .99em;
+    line-height: 22px;
     cursor: pointer;
+    color: #666;
 }
 
 .article-author {
