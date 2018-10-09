@@ -16,3 +16,7 @@
 .active-page {
     color: #2196f3;
 }
+
+.page-number:hover {
+    color: #4d95cf9a;
+}

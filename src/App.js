@@ -53,16 +53,7 @@ class App extends Component {
       <div className="App">
         <Search updateArticles={this.updateArticles}/>
         <News articles={this.state.articles}/>
-        <PageSelector 
-          updatePage = {this.updatePage}
-          numberOfPages={
-            this.state.articles !== null
-              ? this.state.articles.totalResults > 0
-                ? this.state.articles.totalResults / 15
-                : 0
-              : null
-          }
-        />
+        <PageSelector updatePage = {this.updatePage} numberOfPages={this.state.articles ? this.state.articles.totalResults / 15 : 0}  />
       </div>
     );
   }

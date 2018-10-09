@@ -9,7 +9,8 @@ export default class Search extends Component {
 
         this.state = {
             query: "",
-            sources: null
+            sources: null,
+            lastSourcesUsed: null
         }
 
         this.handleInput = this.handleInput.bind(this);
@@ -29,6 +30,7 @@ export default class Search extends Component {
         if(query.length < 4) return; 
         
         this.props.updateArticles(query, sources)
+        this.setState({lastSourcesUsed: sources})
     }
 
     updateSources(activeSources) {
@@ -47,7 +49,13 @@ export default class Search extends Component {
             <div className="search-container">
                 <div className="input-container">
                     <input className="search-input" type="text" placeholder="Search article"  value={this.state.query} onChange={this.handleInput} />
-                    <button onClick={this.handleSubmit} className="submit-button"> Go</button>
+                    <button onClick={this.handleSubmit} className="submit-button"> 
+                        {
+                            this.state.sources !== this.state.lastSourcesUsed 
+                                ? "Update"
+                                : "Go"
+                        }
+                    </button>
                     <div className='attribution'>powerd by <a target="blank" href="https://newsapi.org">NewsAPI.org</a></div> {/*Attribution to Newsapi*/}
                 </div>
                 <SourcesSelector updateSources={this.updateSources}/>
