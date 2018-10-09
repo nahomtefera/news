@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
-import sourcesList from './sourcesList';
 import './search.css';
+// components
+import SourcesSelector from './sourcesSelector';
 
 export default class Search extends Component {
     constructor(props) {
@@ -13,10 +14,6 @@ export default class Search extends Component {
 
         this.handleInput = this.handleInput.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
-    }
-
-    componentWillMount(){
-        console.log(sourcesList)
     }
 
     handleInput(e){
@@ -36,16 +33,11 @@ export default class Search extends Component {
         return (
             <div className="search-container">
                 <div className="input-container">
-                    <input 
-                        className="search-input"
-                        type="text" 
-                        placeholder="Search article"
-                        value={this.state.query}
-                        onChange={this.handleInput}
-                    />
+                    <input className="search-input" type="text" placeholder="Search article"  value={this.state.query} onChange={this.handleInput} />
                     <button onClick={this.handleSubmit} className="submit-button"> Go</button>
-                    <div className='attribution'>powerd by <a target="blank" href="https://newsapi.org">NewsAPI.org</a></div>
+                    <div className='attribution'>powerd by <a target="blank" href="https://newsapi.org">NewsAPI.org</a></div> {/*Attribution to Newsapi*/}
                 </div>
+                <SourcesSelector />
             </div>
         )
     }

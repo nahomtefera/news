@@ -1,0 +1,35 @@
+.sources-selector-container {
+    width: 900px;
+    max-width: 95%;
+    margin: 0 auto;
+    padding: 20px;
+    border-radius: 15px;
+    border: 1px solid #efefef;
+    background: #fdfdfd;
+}
+
+.source-list {
+}
+
+.source-item {
+    list-style: none;
+    display: inline-block;
+    border: 1px solid #efefef;
+    color: #6a6a6a;
+    padding: 10px;
+    margin: 10px;
+    cursor: pointer;
+    border-radius: 15px;
+}
+
+.source-item-active {
+    background: rgb(228, 77, 77);
+    border-color: rgb(228, 77, 77);
+    color: white;
+}
+
+.source-item:hover {
+    background: rgb(228, 77, 77);
+    border-color: rgb(228, 77, 77);
+    color: white;
+}
