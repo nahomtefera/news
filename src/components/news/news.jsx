@@ -70,7 +70,7 @@ export default class News extends Component {
                                                 : ""
                                         }
                                     </div>
-                                    <div className='preview-date'>{this.state.showPreview.publishedAt.replace(/T|Z/g, ' ').slice(0, -4)}</div>
+                                    <div className='preview-date'>{this.state.showPreview.publishedAt.replace(/T|Z/g, ' ').slice(0, -10)}</div>
                                 </div>
                                 <div style={{clear:"both"}}></div>
                                 <h3 className='preview-title'>{this.state.showPreview.title}</h3>

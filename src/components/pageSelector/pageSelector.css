@@ -1,7 +1,10 @@
 .pages-list {
     width: 400px;
+    max-width: 96vw;
     margin: 0 auto;
     text-align: center;
+    box-sizing: border-box;
+    padding: 0;
 }
 
 .page-number {

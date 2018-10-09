@@ -28,7 +28,8 @@
 }
 
 .submit-button:hover {
-    color: #5290d4;
+    background: #5290d4;
+    color: white;
 }
 
 .attribution {

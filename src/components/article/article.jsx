@@ -16,7 +16,7 @@ export default class Article extends Component {
                 </div>
                 <div style={{clear:"both"}}></div>
                 <h3 className="article-title" onClick={this.props.previewArticle}>{this.props.data.title}</h3>
-                <p className="article-description">{this.props.data.description}</p>
+                <p className="article-description" onClick={this.props.previewArticle}>{this.props.data.description}</p>
                 <div>
                     <div className="article-author">
                         {this.props.data.author !== null

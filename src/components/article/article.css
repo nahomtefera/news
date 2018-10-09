@@ -1,5 +1,6 @@
 .article-container {
     width: 600px;
+    max-width: 95vw;
     margin: 30px auto;
     border-radius: 9px;
     border-bottom-left-radius: 0;
