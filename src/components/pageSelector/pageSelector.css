@@ -1,0 +1,18 @@
+.pages-list {
+    width: 400px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.page-number {
+    list-style: none;
+    display: inline-block;
+    margin: 10px;
+    font-weight: bold;
+    cursor: pointer;
+    color: #cacaca;
+}
+
+.active-page {
+    color: #2196f3;
+}
