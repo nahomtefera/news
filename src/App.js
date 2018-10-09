@@ -18,12 +18,13 @@ class App extends Component {
     this.updateArticles = this.updateArticles.bind(this)
   }
 
-  updateArticles(query){
-    console.log(query)
+  updateArticles(query, sources){
     newsapi.v2.everything({
       q: query,
+      sources: sources,
       language: 'en',
-      sortBy: 'relevancy'
+      sortBy: 'publishedAt',
+      pageSize: 5
     }).then(response => {
       this.setState({articles: response})
       console.log(response)

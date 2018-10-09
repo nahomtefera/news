@@ -14,6 +14,7 @@ export default class Search extends Component {
 
         this.handleInput = this.handleInput.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
+        this.updateSources = this.updateSources.bind(this);
     }
 
     handleInput(e){
@@ -23,10 +24,22 @@ export default class Search extends Component {
 
     handleSubmit() {
         let query = this.state.query;
+        let sources = this.state.sources;
         
         if(query.length < 4) return; 
         
-        this.props.updateArticles(query)
+        this.props.updateArticles(query, sources)
+    }
+
+    updateSources(activeSources) {
+        let sources="";
+        for(let name in activeSources) {
+            if(activeSources[name] !== undefined) {
+                sources += name + ',';
+            }
+        }
+
+        this.setState({sources: sources})
     }
 
     render() {
@@ -37,7 +50,7 @@ export default class Search extends Component {
                     <button onClick={this.handleSubmit} className="submit-button"> Go</button>
                     <div className='attribution'>powerd by <a target="blank" href="https://newsapi.org">NewsAPI.org</a></div> {/*Attribution to Newsapi*/}
                 </div>
-                <SourcesSelector />
+                <SourcesSelector updateSources={this.updateSources}/>
             </div>
         )
     }

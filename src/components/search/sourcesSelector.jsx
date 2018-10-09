@@ -20,10 +20,12 @@ export default class SourcesSelector extends Component {
 
         if(prevState[source] !== undefined) {
             prevState[source] = undefined;
+            this.props.updateSources(prevState)
             this.setState({active: prevState})
 
         } else if(prevState[source] == undefined) {
             prevState[source] = true;
+            this.props.updateSources(prevState)
             this.setState({active: prevState})
         }
     }
@@ -31,19 +33,21 @@ export default class SourcesSelector extends Component {
     render(){
         return (
             <div className="sources-selector-container">
-                <ul className="sources-list">
-                    {
-                        sourcesList.map((source, index)=>{
-                            return <li key={index} id={source.id} 
-                                        onClick={this.toggleSource} 
-                                        className={this.state.active[source.id] !== undefined 
-                                            ? "source-item-active source-item" 
-                                            : "source-item"}>
-                                        {source.name}
-                                    </li>
-                        })
-                    }
-                </ul>
+                <div className="sources-slider">
+                    <ul className="sources-list">
+                        {
+                            sourcesList.map((source, index)=>{
+                                return <li key={index} id={source.id} 
+                                            onClick={this.toggleSource} 
+                                            className={this.state.active[source.id] !== undefined 
+                                                ? "source-item-active source-item" 
+                                                : "source-item"}>
+                                            {source.name}
+                                        </li>
+                            })
+                        }
+                    </ul>
+                </div>
             </div>
         )
     }

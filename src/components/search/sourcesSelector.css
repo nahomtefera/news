@@ -1,11 +1,18 @@
 .sources-selector-container {
     width: 900px;
+    height: 90px;
     max-width: 95%;
     margin: 0 auto;
-    padding: 20px;
-    border-radius: 15px;
-    border: 1px solid #efefef;
+    padding: 0;
+    border-radius: 10px;
     background: #fdfdfd;
+    overflow: hidden;
+    overflow-x: scroll;
+    box-shadow: 0 0 5px 0px #efefef;
+}
+
+.sources-slider {
+    width: 8000px;
 }
 
 .source-list {
@@ -16,6 +23,7 @@
     display: inline-block;
     border: 1px solid #efefef;
     color: #6a6a6a;
+    font-weight: bold;
     padding: 10px;
     margin: 10px;
     cursor: pointer;

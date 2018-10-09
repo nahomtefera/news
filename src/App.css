@@ -5,3 +5,7 @@ body {
 input:focus, button:focus {
     outline: none;
 }
+
+.App {
+    margin-bottom: 20em;
+}
