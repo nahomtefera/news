@@ -13,7 +13,7 @@
     font-weight: 600;
     font-size: .85em;
     color: #fff;
-    background: #000;
+    background: #2196f3;
     padding: 7px;
     border-top-left-radius: 9px;
     border-bottom-right-radius: 9px;
@@ -34,6 +34,7 @@
     margin: 0;
     padding: 5px 20px;
     padding-bottom: 0;
+    color: #2173b5;
 }
 
 .article-description {
@@ -46,8 +47,13 @@
     display: inline-block;
     padding: 10px 20px 15px 20px;
     float: left;
-    font-weight: 600;
-    font-size: .85em;
+    font-size: .9em;
+    text-transform: capitalize;
+}
+
+.author-icon {
+    width: 20px;
+    margin-bottom: -4px;
 }
 
 .article-url {
@@ -60,5 +66,6 @@
 
 .article-url a, .article-author a {
     text-decoration: none;
-    color: #00796b;
+    font-weight: bold;
+    color: #2173b5;
 }

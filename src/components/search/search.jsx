@@ -38,6 +38,7 @@ export default class Search extends Component {
                         onChange={this.handleInput}
                     />
                     <button onClick={this.handleSubmit} className="submit-button"> Go</button>
+                    <div className='attribution'>powerd by <a target="blank" href="https://newsapi.org">NewsAPI.org</a></div>
                 </div>
             </div>
         )

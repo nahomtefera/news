@@ -35,11 +35,20 @@ export default class Article extends Component {
                 <p className="article-description">{this.props.data.description}</p>
                 <div>
                     <div className="article-author">
+                        {this.props.data.author !== null
+                            ? <img className="author-icon" src={require('../../icons/author-icon.svg')} alt="author"/>
+                            : null
+                        }
                         {
                             this.props.data.author !== null
                                 ? this.props.data.author.indexOf("http") !== -1
-                                    ? <a target="blank" href={this.props.data.author}>Link to Author</a>
-                                    : this.props.data.author
+                                    ? <a target="blank" href={this.props.data.author}>Author</a> //sometimes the author data is a link to facebook
+                                    : <a target="blank" href={`http://www.google.com/search?q=${this.props.data.author}`}> {/*If it's not a link we will open a google search*/}                                        {
+                                            this.props.data.author.length > 20 //if the text it's too long we will slice it
+                                                ? this.props.data.author.slice(0, 20).toLowerCase() + "..."
+                                                : this.props.data.author.toLowerCase()
+                                        }
+                                      </a>
                                 : ""
                         }
                     </div>
