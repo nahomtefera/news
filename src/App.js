@@ -14,46 +14,69 @@ class App extends Component {
 
     this.state = {
       articles: null,
-      lastSearch: null
+      lastSearch: null,
+      loading: true
     }
 
     this.updateArticles = this.updateArticles.bind(this);
     this.updatePage = this.updatePage.bind(this);
   }
 
-  updateArticles(query, sources){
-    newsapi.v2.everything({
-      q: query,
-      sources: sources,
+  componentWillMount(){
+    newsapi.v2.topHeadlines({
       language: 'en',
-      sortBy: 'publishedAt',
-      pageSize: 15
+      country: 'us'
     }).then(response => {
-      console.log(response)
-      this.setState({articles: response, lastSearch:{query: query, sources: sources}})
-    }).catch((e)=>{console.log(e)});
+      this.setState({articles: response, loading: false})
+    });
+  }
+
+  updateArticles(query, sources){
+    this.setState({loading:true}, ()=>{
+      newsapi.v2.everything({
+        q: query,
+        sources: sources,
+        language: 'en',
+        sortBy: 'publishedAt',
+        pageSize: 15
+      }).then(response => {
+        console.log(response)
+        this.setState({articles: response, lastSearch:{query: query, sources: sources}, loading:false})
+      }).catch((e)=>{console.log(e)});
+    })
   }
 
   updatePage(page) {
-    console.log("heyyy")
-    newsapi.v2.everything({
-      q: this.state.lastSearch.query,
-      sources: this.state.lastSearch.sources,
-      language: 'en',
-      sortBy: 'publishedAt',
-      pageSize: 15,
-      page: page
-    }).then(response => {
-      this.setState({articles: response})
-      window.scrollTo(0, 0)
-    }).catch((e)=>{console.log(e)});
+    this.setState({loading:true}, ()=>{
+      newsapi.v2.everything({
+        q: this.state.lastSearch.query,
+        sources: this.state.lastSearch.sources,
+        language: 'en',
+        sortBy: 'publishedAt',
+        pageSize: 15,
+        page: page
+      }).then(response => {
+        this.setState({articles: response, loading:false})
+        window.scrollTo(0, 0)
+      }).catch((e)=>{console.log(e)});
+    })
   }
 
   render() {
     return (
       <div className="App">
         <Search updateArticles={this.updateArticles}/>
-        <News articles={this.state.articles}/>
+        {
+          this.state.loading === true
+          ? 
+            <div> 
+              <div className="loader-container">
+                  <div className="loader">Loading...</div>
+              </div>
+            </div>
+            
+          : <News articles={this.state.articles}/>
+        }
         <PageSelector updatePage = {this.updatePage} numberOfPages={this.state.articles ? this.state.articles.totalResults / 15 : 0}  />
       </div>
     );
