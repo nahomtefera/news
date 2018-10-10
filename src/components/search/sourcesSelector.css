@@ -1,18 +1,16 @@
 .sources-selector-container {
-    width: 900px;
-    height: 90px;
-    max-width: 95%;
-    margin: 0 auto;
-    padding: 0;
+    width: 500px;
+    max-height: 75vh;
+    position: fixed;
+    right: 4em;
     border-radius: 10px;
     background: #fdfdfd;
-    overflow: hidden;
-    overflow-x: scroll;
-    box-shadow: 0 0 5px 0px #efefef;
+    overflow: scroll;
+    box-shadow: 0 0 0 1px #e0e0e0;
 }
 
 .sources-slider {
-    width: 8000px;
+    /* width: 8000px; */
 }
 
 .source-list {
@@ -42,3 +40,51 @@
     color: white;
 }
 
+@media only screen and (max-width: 1759px) {
+    .articles {
+        margin-left: -10em;
+    }
+}
+
+@media only screen and (max-width: 1600px) {
+    .articles {
+        margin-left: -20em;
+    }
+}
+
+@media only screen and (max-width: 1440px) {
+    .articles {
+        margin-left: -30em;
+    }
+}
+
+@media only screen and (max-width: 1290px) {
+    .articles {
+        margin-left: -35em;
+    }
+}
+
+@media only screen and (max-width: 1290px) {
+    .articles {
+        margin-left: auto;
+    }
+
+    .sources-selector-container {
+        width: 900px;
+        height: 90px;
+        max-width: 95%;
+        position: relative;
+        padding: 0;
+        border-radius: 10px;
+        background: #fdfdfd;
+        overflow: hidden;
+        overflow-x: scroll;
+        box-shadow: 0 0 0 1px #e0e0e0;
+        margin: 0 auto;
+        right: 0;
+    }
+
+    .sources-slider {
+        width: 8000px;
+    }
+}

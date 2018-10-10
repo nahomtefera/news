@@ -56,7 +56,7 @@ export default class Search extends Component {
                     </button>
                     <div className='attribution'>powerd by <a target="blank" href="https://newsapi.org">NewsAPI.org</a></div> {/*Attribution to Newsapi*/}
                 </div>
-                <SourcesSelector updateSources={this.updateSources}/>
+                <SourcesSelector submit={this.handleSubmit} updateSources={this.updateSources}/>
             </div>
         )
     }

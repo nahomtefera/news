@@ -21,13 +21,15 @@ export default class SourcesSelector extends Component {
         if(prevState[source] !== undefined) {
             prevState[source] = undefined;
             this.props.updateSources(prevState)
-            this.setState({active: prevState})
+            this.setState({active: prevState}, ()=>{this.props.submit()})
 
         } else if(prevState[source] == undefined) {
             prevState[source] = true;
             this.props.updateSources(prevState)
-            this.setState({active: prevState})
+            this.setState({active: prevState}, ()=>{this.props.submit()})
         }
+
+        
     }
 
     render(){
