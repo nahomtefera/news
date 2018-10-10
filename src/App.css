@@ -22,6 +22,7 @@ input:focus, button:focus {
   font-family: Lato;
   letter-spacing: 2px;
   word-spacing: 6px;
+  color: #444;
 }
 
 input,

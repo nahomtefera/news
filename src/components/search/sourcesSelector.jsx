@@ -38,7 +38,7 @@ export default class SourcesSelector extends Component {
                 <div className="sources-slider">
                     <ul className="sources-list">
                         {
-                            sourcesList.map((source, index)=>{
+                            sourcesList.us.map((source, index)=>{
                                 return <li key={index} id={source.id} 
                                             onClick={this.toggleSource} 
                                             className={this.state.active[source.id] !== undefined 
