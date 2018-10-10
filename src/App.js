@@ -76,6 +76,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
+        <h1 className="app-title">news n' press</h1>
         <Search updateArticles={this.updateArticles}/>
         {
           this.state.loading === true

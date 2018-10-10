@@ -15,6 +15,14 @@ input:focus, button:focus {
     margin-bottom: 20em;
 }
 
+.app-title {
+  text-align: center;
+  font-weight: 100;
+  font-size: 1.8em;
+  font-family: Lato;
+  letter-spacing: 2px;
+  word-spacing: 6px;
+}
 
 input,
 textarea,
