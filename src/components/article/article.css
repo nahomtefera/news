@@ -4,22 +4,26 @@
     margin: 30px auto;
     border-radius: 9px;
     border-bottom-left-radius: 0;
-    box-shadow: 0 0 3px 1px #ededed;
+    box-shadow: 0 0 1px 0px #9c9c9c;
     background: #fefefe;
     color: #333;
 }
 
+.article-container:first-child {
+    margin-top: 0;
+}
+
 .article-container:hover {
-    box-shadow: 0 0 4px 0px #0f94f630;
+    box-shadow: 0 0 4px 0px #bdbdbd;
 }
 
 .article-source {
     display: inline-block;
     float: left;
-    font-weight: 600;
+    font-weight: 500;
     font-size: .85em;
     color: #fff;
-    background: #2196f3;
+    background: #3999ff;
     padding: 7px 15px;
     border-top-left-radius: 9px;
     border-bottom-right-radius: 9px;

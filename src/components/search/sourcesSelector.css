@@ -29,14 +29,14 @@
 }
 
 .source-item-active {
-    background: rgb(228, 77, 77);
-    border-color: rgb(228, 77, 77);
+    border-color: rgb(50, 150, 255);
+    background: rgb(50, 150, 255);
     color: white;
 }
 
 .source-item:hover {
-    background: rgb(228, 77, 77);
-    border-color: rgb(228, 77, 77);
+    background: rgb(50, 150, 255);
+    border-color: rgb(50, 150, 255);
     color: white;
 }
 
