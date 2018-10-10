@@ -35,11 +35,6 @@
     color: white;
 }
 
-.source-item:hover {
-    background: rgb(50, 150, 255);
-    border-color: rgb(50, 150, 255);
-    color: white;
-}
 
 @media only screen and (max-width: 1759px) {
     .articles {
@@ -88,4 +83,14 @@
     .sources-slider {
         width: 8000px;
     }
+}
+
+@media only screen and (min-width: 1025px) {
+
+    .source-item:hover {
+        background: rgb(50, 150, 255);
+        border-color: rgb(50, 150, 255);
+        color: white;
+    }
+    
 }
