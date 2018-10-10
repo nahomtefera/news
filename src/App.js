@@ -3,6 +3,8 @@ import './App.css';
 // Components
 import News from './components/news/news';
 import Search from './components/search/search';
+import Loader from './components/loader/loader';
+import Language from './components/language/language';
 import PageSelector from './components/pageSelector/pageSelector';
 
 const NewsAPI = require('newsapi');
@@ -15,12 +17,15 @@ class App extends Component {
     this.state = {
       articles: null,
       lastSearch: null,
-      loading: true
+      loading: true,
+      language: 'en',
+      country: 'us'
     }
 
     this.updateArticles = this.updateArticles.bind(this);
     this.updatePage = this.updatePage.bind(this);
-    this.topHeadlines = this.topHeadlines.bind(this)
+    this.topHeadlines = this.topHeadlines.bind(this);
+    this.changeRegion = this.changeRegion.bind(this);
   }
 
   componentWillMount(){
@@ -30,9 +35,8 @@ class App extends Component {
   topHeadlines(sources) {
     newsapi.v2.topHeadlines({
       sources: sources,
-      language: 'en',
+      language: this.state.language,
       sortBy: 'publishedAt',
-      country: 'us'
     }).then(response => {
       this.setState({articles: response, loading: false})
     });
@@ -48,7 +52,7 @@ class App extends Component {
       newsapi.v2.everything({
         q: query,
         sources: sources,
-        language: 'en',
+        language: this.state.language,
         sortBy: 'publishedAt',
         pageSize: 15
       }).then(response => {
@@ -74,22 +78,18 @@ class App extends Component {
     })
   }
 
+  changeRegion(region, language) {
+    this.setState({country:region, language:language}, ()=>{this.topHeadlines()})
+  }
+
   render() {
+    let loading = this.state.loading;
     return (
       <div className="App">
-        <h1 className="app-title">news n' press</h1>
-        <Search updateArticles={this.updateArticles}/>
-        {
-          this.state.loading === true
-          ? 
-            <div> 
-              <div className="loader-container">
-                  <div className="loader">Loading...</div>
-              </div>
-            </div>
-            
-          : <News articles={this.state.articles}/>
-        }
+        <h1 className="app-title">news n press</h1>
+        <Language changeRegion={this.changeRegion}/>
+        <Search region={this.state.country} updateArticles={this.updateArticles}/>
+        {loading ? <Loader /> : <News articles={this.state.articles}/> }
         <PageSelector updatePage = {this.updatePage} numberOfPages={this.state.articles ? this.state.articles.totalResults / 15 : 0}  />
       </div>
     );

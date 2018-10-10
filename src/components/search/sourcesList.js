@@ -1,5 +1,5 @@
 const sourcesList = {
-    us: [
+    "us": [
         {
             "id": "the-wall-street-journal",
             "name": "The Wall Street Journal",
@@ -514,7 +514,7 @@ const sourcesList = {
             "country": "us"
         }
         ],
-    es: [
+    "es": [
         {
             "id": "cnn-es",
             "name": "CNN Spanish",
@@ -579,7 +579,7 @@ const sourcesList = {
             "country": "es"
         }
     ],
-    fr: [
+    "fr": [
         {
           "id": "google-news-fr",
           "name": "Google News (France)",
@@ -626,7 +626,7 @@ const sourcesList = {
           "country": "fr"
         }
       ],
-    de: [
+    "de": [
         {
           "id": "bild",
           "name": "Bild",

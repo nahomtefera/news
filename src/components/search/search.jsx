@@ -63,7 +63,7 @@ export default class Search extends Component {
                     <br/>
                     <div className='attribution'>powerd by <a target="blank" href="https://newsapi.org">NewsAPI.org</a></div> {/*Attribution to Newsapi*/}
                 </div>
-                <SourcesSelector submit={this.handleSubmit} updateSources={this.updateSources}/>
+                <SourcesSelector region={this.props.region} submit={this.handleSubmit} updateSources={this.updateSources}/>
             </div>
         )
     }

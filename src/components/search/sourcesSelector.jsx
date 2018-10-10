@@ -33,12 +33,13 @@ export default class SourcesSelector extends Component {
     }
 
     render(){
+        let country = this.props.region;
         return (
             <div className="sources-selector-container">
                 <div className="sources-slider">
                     <ul className="sources-list">
                         {
-                            sourcesList.us.map((source, index)=>{
+                            sourcesList[country].map((source, index)=>{
                                 return <li key={index} id={source.id} 
                                             onClick={this.toggleSource} 
                                             className={this.state.active[source.id] !== undefined 
