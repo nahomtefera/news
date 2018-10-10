@@ -11,7 +11,7 @@ export default class Article extends Component {
                         {this.props.data.source.name}
                     </div>
                     <div className="article-date">{/* We chop the seconds and remove letters T and Z */}
-                        {this.props.data.publishedAt.replace(/T|Z/g, ' ').slice(0, -4)}
+                        {this.props.data.publishedAt.replace(/T|Z/g, ' ').slice(0, -10)}
                     </div>
                 </div>
                 <div style={{clear:"both"}}></div>

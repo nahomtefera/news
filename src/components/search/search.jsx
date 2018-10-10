@@ -16,6 +16,7 @@ export default class Search extends Component {
         this.handleInput = this.handleInput.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
         this.updateSources = this.updateSources.bind(this);
+        this.handleKeyPress = this.handleKeyPress.bind(this);
     }
 
     handleInput(e){
@@ -29,6 +30,12 @@ export default class Search extends Component {
                 
         this.props.updateArticles(query, sources)
         this.setState({lastSourcesUsed: sources})
+    }
+
+    handleKeyPress(e) {
+        if (e.key === 'Enter') {
+            this.handleSubmit()
+        }
     }
 
     updateSources(activeSources) {
@@ -46,7 +53,7 @@ export default class Search extends Component {
         return (
             <div className="search-container">
                 <div className="input-container">
-                    <input className="search-input" type="text" placeholder="Search article"  value={this.state.query} onChange={this.handleInput} />
+                    <input className="search-input" onKeyPress={this.handleKeyPress} type="text" placeholder="Search article"  value={this.state.query} onChange={this.handleInput} />
                     <button onClick={this.handleSubmit} className="submit-button"> 
                         {
                             this.state.sources !== this.state.lastSourcesUsed 

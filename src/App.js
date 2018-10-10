@@ -31,6 +31,7 @@ class App extends Component {
     newsapi.v2.topHeadlines({
       sources: sources,
       language: 'en',
+      sortBy: 'publishedAt',
       country: 'us'
     }).then(response => {
       this.setState({articles: response, loading: false})
