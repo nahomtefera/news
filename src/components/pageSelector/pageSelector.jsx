@@ -29,7 +29,7 @@ export default class PageSelector extends Component {
                     onClick={()=>{this.updatePage(i)}} data-page={i}>{i}</li>)
             }
         }
-
+        
         return(
             <div>
                 <ul className="pages-list">

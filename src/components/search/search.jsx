@@ -55,8 +55,7 @@ export default class Search extends Component {
                 <div className="input-container">
                     <input className="search-input" onKeyPress={this.handleKeyPress} type="text" placeholder="Search article"  value={this.state.query} onChange={this.handleInput} />
                     <button onClick={this.handleSubmit} className="submit-button"> 
-                        {
-                            this.state.sources !== this.state.lastSourcesUsed 
+                        {this.state.sources !== this.state.lastSourcesUsed 
                                 ? "Refresh"
                                 : "Go"
                         }
