@@ -14,11 +14,10 @@
 }
 
 .article-container:hover {
-    box-shadow: 0 0 4px 0px #bdbdbd;
+    box-shadow: 0 0 4px 0px #e0e0e0;
 }
 
 .article-source {
-    display: inline-block;
     float: left;
     font-weight: 500;
     font-size: .85em;

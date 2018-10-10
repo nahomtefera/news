@@ -6,14 +6,15 @@
     border-radius: 10px;
     background: #fdfdfd;
     overflow: scroll;
-    box-shadow: 0 0 0 1px #e0e0e0;
+    box-shadow: 0 0 0 1px #eaeaea;
+    text-align: left;
 }
 
 .sources-slider {
-    /* width: 8000px; */
 }
 
-.source-list {
+.sources-list {
+    padding-left: 9px;
 }
 
 .source-item {
@@ -79,8 +80,8 @@
         background: #fdfdfd;
         overflow: hidden;
         overflow-x: scroll;
-        box-shadow: 0 0 0 1px #e0e0e0;
-        margin: 0 auto;
+        margin: 2.6em auto;
+        margin-top: 0;
         right: 0;
     }
 
