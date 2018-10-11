@@ -9,6 +9,7 @@
     "react-ga": "^2.5.3",
     "react-scripts": "2.0.4"
   },
+  "homepage" : "https://newsnpress.com",
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
