@@ -8,9 +8,11 @@ import Language from './components/language/language';
 import PageSelector from './components/pageSelector/pageSelector';
 // Google Analytics
 import ReactGA from 'react-ga';
-process.env.NODE_ENV === 'production'
-  ? ReactGA.initialize('UA-127325093-1') // Will be used on live page
-  : ReactGA.initialize('UA-127325093-1') // Will be used on dev page
+if(process.env.NODE_ENV === 'production'){
+  ReactGA.initialize('UA-127325093-1') // Will be used on live page
+  ReactGA.pageview(window.location.pathname + window.location.search);
+}
+
 // News API
 const NewsAPI = require('newsapi');
 const newsapi = new NewsAPI('5be26c0d911a40fcac1539e471bbed2e');
