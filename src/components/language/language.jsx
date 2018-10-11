@@ -13,6 +13,7 @@ export default class Language extends Component {
                 {region: 'es', language: "es"},
                 {region: 'fr', language: "fr"},
                 {region: 'de', language: "de"},
+                {region: 'it', language: "it"},
             ],
             activeRegion: 'us'
         }

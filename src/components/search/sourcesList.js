@@ -717,6 +717,44 @@ const sourcesList = {
           "language": "de",
           "country": "de"
         }
+      ],
+    "it": [
+        {
+          "id": "ansa",
+          "name": "ANSA.it",
+          "description": "Agenzia ANSA: ultime notizie, foto, video e approfondimenti su: cronaca, politica, economia, regioni, mondo, sport, calcio, cultura e tecnologia.",
+          "url": "http://www.ansa.it",
+          "category": "general",
+          "language": "it",
+          "country": "it"
+        },
+        {
+          "id": "google-news-it",
+          "name": "Google News (Italy)",
+          "description": "Copertura giornalistica completa e aggiornata ottenuta combinando fonti di notizie in tutto il mondo attraverso Google News.",
+          "url": "https://news.google.com",
+          "category": "general",
+          "language": "it",
+          "country": "it"
+        },
+        {
+          "id": "il-sole-24-ore",
+          "name": "Il Sole 24 Ore",
+          "description": "Notizie di economia, cronaca italiana ed estera, quotazioni borsa in tempo reale e di finanza, norme e tributi, fondi e obbligazioni, mutui, prestiti e lavoro a cura de Il Sole 24 Ore.",
+          "url": "http://www.ilsole24ore.com",
+          "category": "business",
+          "language": "it",
+          "country": "it"
+        },
+        {
+          "id": "la-repubblica",
+          "name": "La Repubblica",
+          "description": "Breaking News, Latest News and Current News from FOXNews.com. Breaking news and video. Latest Current News: U.S., World, Entertainment, Health, Business, Technology, Politics, Sports.",
+          "url": "http://www.repubblica.it",
+          "category": "general",
+          "language": "it",
+          "country": "it"
+        }
       ]
 };
 
