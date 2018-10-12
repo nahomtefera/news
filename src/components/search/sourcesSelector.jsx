@@ -18,18 +18,10 @@ export default class SourcesSelector extends Component {
         let source = e.target.id;
         let prevState = this.state.active;
 
-        if(prevState[source] !== undefined) {
-            prevState[source] = undefined;
-            this.props.updateSources(prevState)
-            this.setState({active: prevState}, ()=>{this.props.submit()})
-
-        } else if(prevState[source] == undefined) {
-            prevState[source] = true;
-            this.props.updateSources(prevState)
-            this.setState({active: prevState}, ()=>{this.props.submit()})
-        }
-
+        if(prevState[source] === undefined) {prevState[source] = true}
+        else {prevState[source] = undefined}
         
+        this.setState({active: prevState}, ()=>{this.props.updateSources(prevState)})
     }
 
     render(){

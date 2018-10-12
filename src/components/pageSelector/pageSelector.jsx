@@ -14,7 +14,11 @@ export default class PageSelector extends Component {
     }
 
     updatePage(page) {
-        this.setState({activePage:page}, ()=>{this.props.updatePage(page)})
+        this.setState({activePage:page}, this.props.updatePage(page))
+    }
+
+    componentWillReceiveProps(nextProps) {
+        this.setState({activePage:nextProps.currentPage})
     }
 
     render() {
@@ -22,11 +26,13 @@ export default class PageSelector extends Component {
         let pages= this.props.numberOfPages;
         if(this.props.numberOfPages !== 0) {
             if(pages > 10){ pages= 10}
-            for(let i=1; i<=pages;i++) {
-                list.push(<li 
-                    className={this.state.activePage === i ? "page-number active-page": "page-number"} 
-                    key={"page-"+i} 
-                    onClick={()=>{this.updatePage(i)}} data-page={i}>{i}</li>)
+            if(pages > 2) {
+                for(let i=1; i<=pages;i++) {
+                    list.push(<li 
+                        className={this.state.activePage === i ? "page-number active-page": "page-number"} 
+                        key={"page-"+i} 
+                        onClick={()=>{this.updatePage(i)}} data-page={i}>{i}</li>)
+                }
             }
         }
         

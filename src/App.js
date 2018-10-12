@@ -23,74 +23,56 @@ class App extends Component {
 
     this.state = {
       articles: null,
-      lastSearch: null,
       loading: true,
       language: 'en',
-      country: 'us'
+      country: 'us',
+      query: "",
+      sources: "",
+      currentPage: 1
     }
 
-    this.updateArticles = this.updateArticles.bind(this);
     this.updatePage = this.updatePage.bind(this);
-    this.topHeadlines = this.topHeadlines.bind(this);
     this.changeRegion = this.changeRegion.bind(this);
+    this.search = this.search.bind(this);
   }
 
-  componentWillMount(){
-    this.topHeadlines()
-  }
-
-  topHeadlines(sources) {
-    newsapi.v2.topHeadlines({
-      sources: sources,
-      language: this.state.language,
-      sortBy: 'publishedAt',
-    }).then(response => {
-      this.setState({articles: response, loading: false});
-    });
-  }
-
-  updateArticles(query, sources){
-    if(query.length === 0) {
-      this.topHeadlines(sources)
-    } 
-
-    this.setState({loading:true}, ()=>{
-      newsapi.v2.everything({
-        q: query,
+  search(query, sources, page) {
+    if(page === undefined) {page=1}
+    if(query === undefined || query === null || query.length === 0 ) { // we will retrieve top headlines
+      newsapi.v2.topHeadlines({
         sources: sources,
         language: this.state.language,
         sortBy: 'publishedAt',
-        pageSize: 15
+        page: (page || 1)
       }).then(response => {
-        console.log(response)
-        this.setState({articles: response, lastSearch:{query: query, sources: sources}, loading:false})
-      }).catch((e)=>{console.log(e)});
-    })
+        this.setState({articles: response, loading: false, query:query, sources:sources, currentPage:page});
+      });
+    } else if(query !== "") { // we will get everything we can
+      this.setState({loading:true}, ()=>{
+        newsapi.v2.everything({
+          q: query,
+          sources: sources,
+          language: this.state.language,
+          sortBy: 'publishedAt',
+          pageSize: 15,
+          page: (page || 1)
+        }).then(response => {
+          this.setState({articles: response, loading:false, query:query, sources:sources, currentPage:page})
+        }).catch((e)=>{console.log(e)});
+      })
+    }
   }
 
-  updatePage(page) {
-    let query, sources;
-    if (this.state.lastSearch !== null) {
-      query = this.state.lastSearch.query;
-    }else{query = ""; sources=""}
-
-    this.setState({loading:true}, ()=>{
-      newsapi.v2.everything({
-        q: query,
-        sources: sources,
-        language: 'en',
-        sortBy: 'publishedAt',
-        pageSize: 15,
-        page: page
-      }).then(response => {
-        this.setState({articles: response, loading:false})
-        window.scrollTo(0, 0)
-      }).catch((e)=>{console.log(e)});
-    })
+  componentWillMount(){
+    this.search(undefined, undefined)
   }
 
-  changeRegion(region, language) {
-    this.setState({country:region, language:language, lastSearch:null}, ()=>{this.topHeadlines()})
+  changeRegion(language, country){this.setState({language, country:country},()=>{this.search()})}
+  
+  updatePage(page){
+    this.search(this.state.query, this.state.sources, page)
+    window.scrollTo(0, 0)
+    this.setState({currentPage:page})
   }
 
   render() {
@@ -99,9 +81,9 @@ class App extends Component {
       <div className="App">
         <h1 className="app-title">news n press</h1>
         <Language changeRegion={this.changeRegion}/>
-        <Search region={this.state.country} updateArticles={this.updateArticles}/>
+        <Search search={this.search} region={this.state.country}/>
         {loading ? <Loader /> : <News articles={this.state.articles}/> }
-        <PageSelector updatePage = {this.updatePage} numberOfPages={this.state.articles ? this.state.articles.totalResults / 15 : 0}  />
+        <PageSelector updatePage={this.updatePage} currentPage={this.state.currentPage} numberOfPages={this.state.articles ? this.state.articles.totalResults / 15 : 0}  />
       </div>
     );
   }

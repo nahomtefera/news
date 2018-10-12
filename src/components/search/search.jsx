@@ -10,7 +10,6 @@ export default class Search extends Component {
         this.state = {
             query: "",
             sources: null,
-            lastSourcesUsed: null
         }
 
         this.handleInput = this.handleInput.bind(this);
@@ -28,8 +27,7 @@ export default class Search extends Component {
         let query = this.state.query;
         let sources = this.state.sources;
                 
-        this.props.updateArticles(query, sources)
-        this.setState({lastSourcesUsed: sources})
+        this.props.search(query, sources)
     }
 
     handleKeyPress(e) {
@@ -45,8 +43,7 @@ export default class Search extends Component {
                 sources += name + ',';
             }
         }
-
-        this.setState({sources: sources})
+        this.setState({sources: sources}, ()=>{this.handleSubmit()})
     }
 
     render() {
@@ -54,12 +51,7 @@ export default class Search extends Component {
             <div className="search-container">
                 <div className="input-container">
                     <input className="search-input" onKeyPress={this.handleKeyPress} type="text" placeholder="Search article"  value={this.state.query} onChange={this.handleInput} />
-                    <button onClick={this.handleSubmit} className="submit-button"> 
-                        {this.state.sources !== this.state.lastSourcesUsed 
-                                ? "Refresh"
-                                : "Go"
-                        }
-                    </button>
+                    <button onClick={this.handleSubmit} className="submit-button">Go</button>
                     <br/>
                     <div className='attribution'>powerd by <a target="blank" href="https://newsapi.org">NewsAPI.org</a></div> {/*Attribution to Newsapi*/}
                 </div>

@@ -22,10 +22,10 @@ export default class Language extends Component {
     }
 
     chooseRegion(e) {
-        let region = e.target.getAttribute('data-reg');
+        let country = e.target.getAttribute('data-reg');
         let language = e.target.getAttribute('data-lang');
-        this.props.changeRegion(region, language)
-        this.setState({activeRegion: region})
+        this.props.changeRegion(language, country)
+        this.setState({activeRegion: country})
     }
 
     render(){

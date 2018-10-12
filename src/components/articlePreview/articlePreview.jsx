@@ -22,7 +22,7 @@ export default class ArticlePreview extends Component {
                             }
                             <div>
                             <div className="preview-author">
-                                    {article.author == null || article.author == ""
+                                    {article.author == null || article.author === ""
                                         ? null
                                         : <img className="author-icon" src={require('../../icons/author-icon.svg')} alt="author"/>
                                     }
