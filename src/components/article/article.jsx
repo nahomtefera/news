@@ -18,8 +18,14 @@ export default class Article extends Component {
                     </div>
                 </div>
                 <div style={{clear:"both"}}></div>
-                <h3 className="article-title" onClick={previewArticle}>{article.title}</h3>
-                <p className="article-description" onClick={previewArticle}>{article.description}</p>
+                <div className="article-content-container">
+                    <div style={{backgroundImage: `url(${article.urlToImage})`, display: article.urlToImage ? "inline-block" : "none"}} className="img-container">
+                    </div>
+                    <div className="title-description-container">
+                        <h3 className="article-title" onClick={previewArticle}>{article.title}</h3>
+                        <p className="article-description" onClick={previewArticle}>{article.description !== null ? article.description.slice(0, 128) + "..." : article.description}</p>
+                    </div>
+                </div>
                 <div>
                     <div className="article-author">
                         {article.author !== null
@@ -31,7 +37,7 @@ export default class Article extends Component {
                                     ? <a target="blank" href={article.author}>Author</a> //sometimes the author data is a link to facebook
                                     : <a target="blank" href={`http://www.google.com/search?q=${article.author}`}> {/*If it's not a link we will open a google search*/}                                        {
                                             article.author.length > 20 //if the text it's too long we will slice it
-                                                ? article.author.slice(0, 20).toLowerCase() + "..."
+                                                ? article.author.slice(0, 15).toLowerCase() + "..."
                                                 : article.author.toLowerCase()
                                         }
                                       </a>

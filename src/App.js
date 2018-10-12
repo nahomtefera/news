@@ -45,12 +45,11 @@ class App extends Component {
       language: this.state.language,
       sortBy: 'publishedAt',
     }).then(response => {
-      this.setState({articles: response, loading: false})
+      this.setState({articles: response, loading: false});
     });
-  } 
+  }
 
   updateArticles(query, sources){
-
     if(query.length === 0) {
       this.topHeadlines(sources)
     } 
@@ -70,10 +69,15 @@ class App extends Component {
   }
 
   updatePage(page) {
+    let query, sources;
+    if (this.state.lastSearch !== null) {
+      query = this.state.lastSearch.query;
+    }else{query = ""; sources=""}
+
     this.setState({loading:true}, ()=>{
       newsapi.v2.everything({
-        q: this.state.lastSearch.query,
-        sources: this.state.lastSearch.sources,
+        q: query,
+        sources: sources,
         language: 'en',
         sortBy: 'publishedAt',
         pageSize: 15,
