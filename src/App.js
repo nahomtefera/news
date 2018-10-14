@@ -42,7 +42,6 @@ class App extends Component {
       newsapi.v2.topHeadlines({
         sources: sources,
         language: this.state.language,
-        sortBy: 'publishedAt',
         page: (page || 1)
       }).then(response => {
         this.setState({articles: response, loading: false, query:query, sources:sources, currentPage:page});
@@ -53,7 +52,6 @@ class App extends Component {
           q: query,
           sources: sources,
           language: this.state.language,
-          sortBy: 'publishedAt',
           pageSize: 15,
           page: (page || 1)
         }).then(response => {
@@ -64,7 +62,7 @@ class App extends Component {
   }
 
   componentWillMount(){
-    this.search(undefined, undefined)
+    this.search("usa", undefined)
   }
 
   changeRegion(language, country){this.setState({language, country:country},()=>{this.search()})}

@@ -1,6 +1,6 @@
 .sources-selector-container {
     width: 500px;
-    max-height: 75vh;
+    max-height: 60vh;
     position: fixed;
     right: 4em;
     border-radius: 10px;
