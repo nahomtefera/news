@@ -30,8 +30,8 @@
 }
 
 .source-item-active {
-    border-color: rgb(50, 150, 255);
-    background: rgb(50, 150, 255);
+    border-color: #000;
+    background: #000;
     color: white;
 }
 
@@ -88,8 +88,8 @@
 @media only screen and (min-width: 1025px) {
 
     .source-item:hover {
-        background: rgb(50, 150, 255);
-        border-color: rgb(50, 150, 255);
+        background: #000;
+        border-color: #000;
         color: white;
     }
     
