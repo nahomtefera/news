@@ -111,10 +111,16 @@
     font-size: .85em;
 }
 
-.article-url a, .article-author a {
+.article-url a {
     text-decoration: none;
     font-weight: bold;
-    color: #2173b5;
+    color: #3e89c7;
+}
+
+.article-author a {
+    text-decoration: none;
+    font-weight: 500;
+    color: #9e9e9e;
 }
 
 @media only screen and (max-width: 575px) {
