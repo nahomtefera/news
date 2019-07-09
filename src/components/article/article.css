@@ -21,15 +21,16 @@
     float: left;
     font-weight: 500;
     font-size: .85em;
-    color: #fff;
-    background: #3999ff;
+    color: #000;
+    background: #ffffff;
     padding: 7px 15px;
+    border-right: 1px solid #efefef;
+    border-bottom: 1px solid #efefef;
     border-top-left-radius: 9px;
     border-bottom-right-radius: 9px;
 }
 
 .article-date {
-    display: inline-block;
     padding: 10px 20px;
     float: right;
     font-weight: 600;
@@ -71,7 +72,7 @@
     margin: 0;
     padding: 5px 20px;
     padding-bottom: 0;
-    color: #2173b5;
+    color: #333;
     cursor: pointer;
 }
 
