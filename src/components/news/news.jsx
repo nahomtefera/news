@@ -17,10 +17,12 @@ export default class News extends Component {
     }
 
     previewArticle(article) {
+        document.body.classList.add('modal-open');
         this.setState({showPreview:article})
     }
 
     closePreview() {
+        document.body.classList.remove('modal-open');
         this.setState({showPreview:null})
     }
 

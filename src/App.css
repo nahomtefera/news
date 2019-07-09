@@ -7,6 +7,10 @@ body {
     font-family: Lato, Helvetica, sans-serif;
 }
 
+.modal-open {
+    overflow: hidden;
+}
+
 input:focus, button:focus {
     outline: none;
 }
