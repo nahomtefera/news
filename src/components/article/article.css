@@ -62,6 +62,10 @@
     width: 70%;
 }
 
+.title-description-container-no-img {
+    width: 100%;
+}
+
 .article-img {
     max-width: 100%;
 }
