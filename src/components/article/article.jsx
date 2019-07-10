@@ -21,7 +21,7 @@ export default class Article extends Component {
                 <div className="article-content-container">
                     <div style={{backgroundImage: `url(${article.urlToImage})`, display: article.urlToImage ? "inline-block" : "none"}} className="img-container">
                     </div>
-                    <div className={ article.urlToImage == '' ? "title-description-container-no-img" : "title-description-container" }> {/* If the article doesn't have an image the description should take the full width */}
+                    <div className={ article.urlToImage == "" || article.urlToImage == null  ? "title-description-container-no-img" : "title-description-container" }> {/* If the article doesn't have an image the description should take the full width */}
                         <h3 className="article-title" onClick={previewArticle}>{article.title}</h3>
                         <p className="article-description" onClick={previewArticle}>{article.description !== null ? article.description.slice(0, 128) + "..." : article.description}</p>
                     </div>
