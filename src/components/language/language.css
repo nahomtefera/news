@@ -3,6 +3,20 @@
     padding: 0;
 }
 
+.dark-list-region {
+    display: inline;
+    list-style: none;
+    padding: 2px 7px;
+    color: #fff;
+    background: #333;
+    font-size: .8em;
+    margin: 0 10px;
+    border: 1px solid #eee;
+    border-radius: 5px;
+    cursor: pointer;
+    animation: darkBackground 1s;
+}
+
 .list-region {
     display: inline;
     list-style: none;

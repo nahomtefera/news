@@ -36,7 +36,16 @@ export default class Language extends Component {
                     {this.state.regions.map((region, index)=>{
                         return <li onClick={this.chooseRegion} 
                                     data-reg={region.region} data-lang={region.language} key={index}
-                                    className={activeReg === region.region ? "list-region active-region" : "list-region"}>{region.region}</li>
+                                    className={
+                                        // class name will change the color of the selected language
+                                        // will add dark background when dark theme is selected
+                                        activeReg === region.region 
+                                        ? "list-region active-region" 
+                                        : this.props.nightMode 
+                                            ? "dark-list-region"
+                                            : "list-region"}
+                                    
+                                    >{region.region}</li>
                     })}
                 </ul>
             </div>
