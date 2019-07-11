@@ -25,9 +25,9 @@ export default class SourcesSelector extends Component {
     }
 
     render(){
-        let country = this.props.region;
+        let country = this.props.region, nightMode=this.props.nightMode;
         return (
-            <div className="sources-selector-container">
+            <div className={nightMode ? "dark-sources-selector-container" : "sources-selector-container"}>
                 <div className="sources-slider">
                     <ul className="sources-list">
                         {
@@ -36,7 +36,9 @@ export default class SourcesSelector extends Component {
                                             onClick={this.toggleSource} 
                                             className={this.state.active[source.id] !== undefined 
                                                 ? "source-item-active source-item" 
-                                                : "source-item"}>
+                                                :  nightMode 
+                                                    ? "dark-source-item"
+                                                    : "source-item"}>
                                             {source.name}
                                         </li>
                             })

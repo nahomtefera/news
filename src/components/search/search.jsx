@@ -56,7 +56,7 @@ export default class Search extends Component {
                     <br/>
                     <div className={nightMode ? 'dark-attribution' : 'attribution'}>powerd by <a target="blank" href="https://newsapi.org">NewsAPI.org</a></div> {/*Attribution to Newsapi*/}
                 </div>
-                <SourcesSelector region={this.props.region} submit={this.handleSubmit} updateSources={this.updateSources}/>
+                <SourcesSelector nightMode={nightMode} region={this.props.region} submit={this.handleSubmit} updateSources={this.updateSources}/>
             </div>
         )
     }

@@ -1,3 +1,15 @@
+.dark-sources-selector-container {
+    width: 500px;
+    max-height: 60vh;
+    position: fixed;
+    right: 4em;
+    border-radius: 10px;
+    background: #3f3f3f;
+    overflow: scroll;
+    box-shadow: 0 0 0 1px #eaeaea;
+    text-align: left;
+}
+
 .sources-selector-container {
     width: 500px;
     max-height: 60vh;
@@ -15,6 +27,18 @@
 
 .sources-list {
     padding-left: 9px;
+}
+
+.dark-source-item {
+    list-style: none;
+    display: inline-block;
+    border: 1px solid #efefef;
+    color: #fff;
+    font-weight: bold;
+    padding: 10px;
+    margin: 10px;
+    cursor: pointer;
+    border-radius: 15px;
 }
 
 .source-item {
@@ -65,6 +89,21 @@
         margin-left: auto;
     }
 
+    .dark-sources-selector-container {
+        background: #3f3f3f;
+        width: 900px;
+        height: 90px;
+        max-width: 95%;
+        position: relative;
+        padding: 0;
+        border-radius: 10px;
+        overflow: hidden;
+        overflow-x: scroll;
+        margin: 2.6em auto;
+        margin-top: 0;
+        right: 0;
+    }
+    
     .sources-selector-container {
         width: 900px;
         height: 90px;
