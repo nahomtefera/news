@@ -10,16 +10,17 @@
 }
 
 .dark-search-input {
-    background: #3f3f3f;
+    background: #171717;
     color: white;
     width: 540px;
     max-width: 65%;
     box-sizing: border-box;
     padding: 10px;
     font-size: 1.35em;
-    border: 1px solid #eaeaea;
+    border: 1px solid #808080;
     border-top-left-radius: 4px;
     border-bottom-left-radius: 4px;
+    animation: darkTheme 1s;
 }
 
 .dark-search-input::placeholder {
@@ -45,11 +46,12 @@
     font-weight: bold;
     text-transform: uppercase;
     color: #fff;
-    background: #3f3f3f;
-    border: 1px solid #eaeaea;
+    background: #171717;
+    border: 1px solid #808080;
     cursor: pointer;
     border-top-right-radius: 4px;
     border-bottom-right-radius: 4px;
+    animation: darkTheme 1s;
 }
 
 .submit-button {

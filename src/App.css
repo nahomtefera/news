@@ -56,7 +56,7 @@ a {
 
 .dark-App {
     animation: darkBackground 1s;
-    background: #3f3f3f;
+    background: #171717;
 }
 
 .App {
@@ -65,41 +65,19 @@ a {
 
 
 /* Night Mode Theme animations */
-@keyframes lightTheme{
-    from{
-        left: 0;
-        background: #3f3f3f;
-    } 
-    to{
-        left: 50px;
-        background: #fff
-    }
-  }
-  
-@keyframes darkTheme{
-    from{
-        left: 50px;
-        background: #fff
-    } 
-    to{
-        left: 0;
-        background: #3f3f3f;
-  
-    }
-}
-  
+
 @keyframes darkBackground {
     from{
       background: #fff
     } 
     to{
-      background: #3f3f3f;
+      background: #171717;
     }
 }
   
 @keyframes lightBackground {
     from{
-      background: #3f3f3f
+      background: #171717
     } 
     to{
       background: #fff;

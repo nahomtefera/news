@@ -5,12 +5,12 @@ export default class Article extends Component {
     
     render() {
         
-        let article = this.props.data, previewArticle = this.props.previewArticle;
+        let article = this.props.data, previewArticle = this.props.previewArticle, nightMode=this.props.nightMode;
 
         return(
-            <div className="article-container">
+            <div className={nightMode ? "dark-article-container" : "article-container"}>
                 <div>
-                    <div className="article-source">
+                    <div className={nightMode ? "dark-article-source" : "article-source" }>
                         {article.source.name}
                     </div>
                     <div className="article-date">{/* We chop the seconds and remove letters T and Z */}
@@ -19,11 +19,11 @@ export default class Article extends Component {
                 </div>
                 <div style={{clear:"both"}}></div>
                 <div className="article-content-container">
-                    <div style={{backgroundImage: `url(${article.urlToImage})`, display: article.urlToImage ? "inline-block" : "none"}} className="img-container">
+                    <div style={{backgroundImage: `url(${article.urlToImage})`, display: article.urlToImage ? "inline-block" : "none"}} className={nightMode ? "dark-img-container" : "img-container"}>
                     </div>
                     <div className={ article.urlToImage == "" || article.urlToImage == null  ? "title-description-container-no-img" : "title-description-container" }> {/* If the article doesn't have an image the description should take the full width */}
-                        <h3 className="article-title" onClick={previewArticle}>{article.title}</h3>
-                        <p className="article-description" onClick={previewArticle}>{article.description !== null ? article.description.slice(0, 128) + "..." : article.description}</p>
+                        <h3 className={nightMode ? "dark-article-title" : "article-title"} onClick={previewArticle}>{article.title}</h3>
+                        <p className={nightMode ? "dark-article-description" : "article-description"} onClick={previewArticle}>{article.description !== null ? article.description.slice(0, 128) + "..." : article.description}</p>
                     </div>
                 </div>
                 <div>
@@ -44,7 +44,7 @@ export default class Article extends Component {
                                 : ""
                         }
                     </div>
-                    <div className="article-url">
+                    <div className={nightMode ? "dark-article-url" : "article-url"}>
                         <a target="blank" href={article.url}>Go to Source</a>
                     </div>
                 </div>

@@ -36,7 +36,9 @@ export default class News extends Component {
         }
     }
 
-    render() {
+    render() {      
+        let nightMode=this.props.nightMode;
+  
         return (
             <div className="news-container">
                 <div className="articles">
@@ -44,7 +46,7 @@ export default class News extends Component {
                         this.props.articles !== null
                             ? this.props.articles.articles.length > 0 
                                 ? this.props.articles.articles.map((article, index)=>{
-                                    return <Article key={index} data={article} previewArticle={()=>{this.previewArticle(article)}}/>
+                                    return <Article nightMode={nightMode} key={index} data={article} previewArticle={()=>{this.previewArticle(article)}}/>
                                 })
                                 : <div className="no-articles">No articles</div>
                             : <div className="no-articles">No articles</div>

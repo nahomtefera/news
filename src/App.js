@@ -81,8 +81,13 @@ class App extends Component {
 
 
   toggleNightMode() {
-    let currentTheme = this.state.nightMode;
-    this.setState({nightMode: !currentTheme})
+    let nightMode = this.state.nightMode;
+
+    nightMode  // this will change the backgrdound of the body to dark on darkMode
+      ? document.body.style.background = "#fff"
+      : document.body.style.background = "#171717"
+
+    this.setState({nightMode: !nightMode})
   }
 
 
@@ -94,7 +99,7 @@ class App extends Component {
         <Language nightMode={nightMode} changeRegion={this.changeRegion}/>
         <NightMode nightMode={nightMode} toggleNightMode={this.toggleNightMode}/>
         <Search nightMode={nightMode} search={this.search} region={this.state.country}/>
-        {loading ? <Loader /> : <News articles={this.state.articles}/> }
+        {loading ? <Loader /> : <News nightMode={nightMode} articles={this.state.articles}/> }
         <PageSelector nightMode={nightMode} updatePage={this.updatePage} currentPage={this.state.currentPage} numberOfPages={this.state.articles ? this.state.articles.totalResults / 15 : 0}  />
       </div>
     );

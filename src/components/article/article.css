@@ -1,3 +1,15 @@
+.dark-article-container {
+    width: 600px;
+    max-width: 95vw;
+    margin: 30px auto;
+    border-radius: 9px;
+    border-bottom-left-radius: 0;
+    box-shadow: 0 0 1px 0px #9c9c9c;
+    background: #171717;
+    color: #333;
+    animation: darkTheme 1s;
+}
+
 .article-container {
     width: 600px;
     max-width: 95vw;
@@ -9,12 +21,26 @@
     color: #333;
 }
 
-.article-container:first-child {
+.article-container:first-child, .dark-article-container:first-child  {
     margin-top: 0;
 }
 
 .article-container:hover {
     box-shadow: 0 0 4px 0px #e0e0e0;
+}
+
+.dark-article-source {
+    float: left;
+    font-weight: 500;
+    font-size: .85em;
+    color: #fff;
+    background: #171717;
+    animation: darkBackground 1s;
+    padding: 7px 15px;
+    border-right: 1px solid #4f4f4f;
+    border-bottom: 1px solid #4f4f4f;
+    border-top-left-radius: 9px;
+    border-bottom-right-radius: 9px;
 }
 
 .article-source {
@@ -43,9 +69,19 @@
     box-sizing: border-box
 }
 
-.img-container, .title-description-container {
+.dark-img-container, .img-container, .title-description-container {
     display: inline-block;
     vertical-align: middle;
+}
+
+.dark-img-container {
+    width: 30%;
+    height: 122px;
+    box-sizing: border-box;
+    border: 1px solid #171717;
+    border-radius: 4px;
+    overflow: hidden;
+    background-size: cover
 }
 
 .img-container {
@@ -70,6 +106,16 @@
     max-width: 100%;
 }
 
+.dark-article-title {
+    font-weight: 500;
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 0;
+    padding: 5px 20px;
+    padding-bottom: 0;
+    color: #fff;
+    cursor: pointer;
+}
+
 .article-title {
     font-weight: 500;
     font-family: Arial, Helvetica, sans-serif;
@@ -78,6 +124,16 @@
     padding-bottom: 0;
     color: #333;
     cursor: pointer;
+}
+
+.dark-article-description {
+    font-weight: 300;
+    padding: 2px 20px;
+    font-size: .99em;
+    line-height: 22px;
+    cursor: pointer;
+    color: #fafafa;
+    margin-bottom: 0;
 }
 
 .article-description {
@@ -101,6 +157,20 @@
 .author-icon {
     width: 20px;
     margin-bottom: -4px;
+}
+
+.dark-article-url {
+    display: inline-block;
+    padding: 10px 20px 15px 20px;
+    float: right;
+    font-weight: 600;
+    font-size: .85em;
+}
+
+.dark-article-url a {
+    text-decoration: none;
+    font-weight: bold;
+    color: #fff;
 }
 
 .article-url {
@@ -129,9 +199,21 @@
         box-sizing: border-box
     }
     
-    .img-container, .title-description-container {
+    .dark-img-container, .img-container, .title-description-container {
         display: block;
         vertical-align: top;
+    }
+    
+    .dark-img-container {
+        width: 100%;
+        margin: 0 auto;
+        height: 145px;
+        box-sizing: border-box;
+        border: 1px solid #171717;
+        border-radius: 4px;
+        overflow: hidden;
+        background-size: cover;
+        background-position: center;
     }
     
     .img-container {

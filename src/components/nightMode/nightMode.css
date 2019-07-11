@@ -1,21 +1,22 @@
 
 .theme-container {
-  width: 100px;
-  height: 50px;
+  width: 50px;
+  height: 35px;
   position: absolute;
   top: 1em;
   left: 2em;    
   padding: 10px;
   box-sizing: border-box;
-  box-shadow: 0px 1px 3px 0px #ccc;
+  box-shadow: 0px 1px 3px 0px #171717;
   border-radius: 30px;
   overflow: hidden;
+  background: #f9f9f9;
   animation: lightBackground 1s;
 }
 
 .theme-container-dark{
-  width: 100px;
-  height: 50px;
+  width: 50px;
+  height: 35px;
   position: absolute;
   top: 1em;
   left: 2em;    
@@ -29,9 +30,9 @@
 }
 
 .theme-button {
-  width: 30px;
-  height: 30px;
-  background: #3f3f3f;
+  width: 15px;
+  height: 15px;
+  background: #171717;
   box-shadow:0px 0px 1px 1px #b3b3b3;   
   border-radius: 50%;
   cursor: pointer;
@@ -41,14 +42,38 @@
 }
 
 .theme-button-light {
-  width: 30px;
-  height: 30px;
-  background: #3f3f3f;
+  width: 15px;
+  height: 15px;
+  background: #171717;
   border-radius: 50%;
   cursor: pointer;
   position: relative;
-  left: 50px;
+  left: 18px;
   background: #fff;
   box-shadow: 0px 1px 3px 0px #cacaca;
   animation: lightTheme 1s;
+}
+
+
+@keyframes lightTheme{
+  from{
+      left: 0;
+      background: #171717;
+  } 
+  to{
+      left: 18px;
+      background: #fff
+  }
+}
+
+@keyframes darkTheme{
+  from{
+      left: 18px;
+      background: #fff
+  } 
+  to{
+      left: 0;
+      background: #171717;
+
+  }
 }

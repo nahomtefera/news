@@ -4,10 +4,11 @@
     position: fixed;
     right: 4em;
     border-radius: 10px;
-    background: #3f3f3f;
+    background: #171717;
     overflow: scroll;
-    box-shadow: 0 0 0 1px #eaeaea;
+    box-shadow: 0 0 0 1px #808080;
     text-align: left;
+    animation: darkBackground 1s;
 }
 
 .sources-selector-container {
@@ -32,7 +33,7 @@
 .dark-source-item {
     list-style: none;
     display: inline-block;
-    border: 1px solid #efefef;
+    border: 1px solid #808080;
     color: #fff;
     font-weight: bold;
     padding: 10px;
@@ -90,7 +91,7 @@
     }
 
     .dark-sources-selector-container {
-        background: #3f3f3f;
+        background: #171717;
         width: 900px;
         height: 90px;
         max-width: 95%;
