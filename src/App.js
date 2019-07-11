@@ -6,6 +6,8 @@ import Search from './components/search/search';
 import Loader from './components/loader/loader';
 import Language from './components/language/language';
 import PageSelector from './components/pageSelector/pageSelector';
+import NightMode from './components/nightMode/nightMode';
+
 // Google Analytics
 import ReactGA from 'react-ga';
 if(process.env.NODE_ENV === 'production'){
@@ -28,12 +30,14 @@ class App extends Component {
       country: 'us',
       query: "",
       sources: "",
-      currentPage: 1
+      currentPage: 1,
+      nightMode: true
     }
 
     this.updatePage = this.updatePage.bind(this);
     this.changeRegion = this.changeRegion.bind(this);
     this.search = this.search.bind(this);
+    this.toggleNightMode = this.toggleNightMode.bind(this)
   }
 
   search(query, sources, page) {
@@ -75,12 +79,20 @@ class App extends Component {
     this.setState({currentPage:page})
   }
 
+
+  toggleNightMode() {
+    let currentTheme = this.state.nightMode;
+    this.setState({nightMode: !currentTheme})
+  }
+
+
   render() {
     let loading = this.state.loading;
     return (
       <div className="App">
         <h1 className="app-title">news n press</h1>
         <Language changeRegion={this.changeRegion}/>
+        <NightMode nightMode={this.state.nightMode} toggleNightMode={this.toggleNightMode}/>
         <Search search={this.search} region={this.state.country}/>
         {loading ? <Loader /> : <News articles={this.state.articles}/> }
         <PageSelector updatePage={this.updatePage} currentPage={this.state.currentPage} numberOfPages={this.state.articles ? this.state.articles.totalResults / 15 : 0}  />
