@@ -87,15 +87,15 @@ class App extends Component {
 
 
   render() {
-    let loading = this.state.loading;
+    let loading = this.state.loading, nightMode = this.state.nightMode;
     return (
-      <div className={ this.state.nightMode == true ? "dark-App" : "App"}>
-        <h1 className={ this.state.nightMode == true ? "app-title-dark" : "app-title"}>news n press</h1>
-        <Language changeRegion={this.changeRegion}/>
-        <NightMode nightMode={this.state.nightMode} toggleNightMode={this.toggleNightMode}/>
-        <Search search={this.search} region={this.state.country}/>
+      <div className={ nightMode == true ? "dark-App" : "App"}>
+        <h1 className={ nightMode == true ? "app-title-dark" : "app-title"}>news n press</h1>
+        <Language nightMode={nightMode} changeRegion={this.changeRegion}/>
+        <NightMode nightMode={nightMode} toggleNightMode={this.toggleNightMode}/>
+        <Search nightMode={nightMode} search={this.search} region={this.state.country}/>
         {loading ? <Loader /> : <News articles={this.state.articles}/> }
-        <PageSelector updatePage={this.updatePage} currentPage={this.state.currentPage} numberOfPages={this.state.articles ? this.state.articles.totalResults / 15 : 0}  />
+        <PageSelector nightMode={nightMode} updatePage={this.updatePage} currentPage={this.state.currentPage} numberOfPages={this.state.articles ? this.state.articles.totalResults / 15 : 0}  />
       </div>
     );
   }
