@@ -55,7 +55,7 @@ export default class News extends Component {
                 
                 <div className={this.state.showPreview ? "dark-background" : 'hide'} onClick={this.closePreview}></div>
                 { this.state.showPreview !== null 
-                    ? <ArticlePreview closePreview={this.closePreview} data={this.state.showPreview}/>
+                    ? <ArticlePreview nightMode={nightMode} closePreview={this.closePreview} data={this.state.showPreview}/>
                     : null
                 }
                     

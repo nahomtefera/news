@@ -5,23 +5,23 @@ export default class ArticlePreview extends Component {
 
     render() {
 
-        let article = this.props.data;
+        let article = this.props.data, nightMode=this.props.nightMode;
 
         return (
-            <div className="article-preview-container">
+            <div className={nightMode ? "dark-article-preview-container" : "article-preview-container"}>
                 {article !== null
                     ?
                         <div className="article-preview">
                             <div className="close-button" onClick={this.props.closePreview}>X</div>
                             
-                            {article.urlToImage !== null 
+                            { article.urlToImage !== null && article.urlToImage !== ""
                                 ?   <div className="preview-img-container">
                                         <img className="preview-img" src={article.urlToImage} alt="article-img"/>
                                     </div >
                                 : null
                             }
                             <div>
-                            <div className="preview-author">
+                            <div className={nightMode ? "dark-preview-author" : "preview-author"}>
                                     {article.author == null || article.author === ""
                                         ? null
                                         : <img className="author-icon" src={require('../../icons/author-icon.svg')} alt="author"/>
@@ -42,8 +42,8 @@ export default class ArticlePreview extends Component {
                                 <div className='preview-date'>{article.publishedAt.replace(/T|Z/g, ' ').slice(0, -10)}</div>
                             </div>
                             <div style={{clear:"both"}}></div>
-                            <h3 className='preview-title'>{article.title}</h3>
-                            <p className="preview-content">
+                            <h3 className={ nightMode ? 'dark-preview-title' : 'preview-title'}>{article.title}</h3>
+                            <p className={ nightMode ? 'dark-preview-content' : "preview-content"}>
                                 {article.content 
                                     ? article.content.slice(0, 260)
                                     : null 
@@ -51,7 +51,7 @@ export default class ArticlePreview extends Component {
                                 <a className="preview-link" target='blank' href={article.url}> Keep reading</a>    
                             </p>
                                     
-                            <div className="preview-source">
+                            <div className={nightMode ? "dark-preview-source" : "preview-source"}>
                                 {article.source.name}
                             </div>
                         </div>
