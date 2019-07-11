@@ -31,7 +31,7 @@ class App extends Component {
       query: "",
       sources: "",
       currentPage: 1,
-      nightMode: true
+      nightMode: false
     }
 
     this.updatePage = this.updatePage.bind(this);
@@ -89,8 +89,8 @@ class App extends Component {
   render() {
     let loading = this.state.loading;
     return (
-      <div className="App">
-        <h1 className="app-title">news n press</h1>
+      <div className={ this.state.nightMode == true ? "dark-App" : "App"}>
+        <h1 className={ this.state.nightMode == true ? "app-title-dark" : "app-title"}>news n press</h1>
         <Language changeRegion={this.changeRegion}/>
         <NightMode nightMode={this.state.nightMode} toggleNightMode={this.toggleNightMode}/>
         <Search search={this.search} region={this.state.country}/>

@@ -19,6 +19,19 @@ input:focus, button:focus {
     margin-bottom: 20em;
 }
 
+.app-title-dark {
+    text-align: center;
+    font-weight: 400;
+    font-size: 1.2em;
+    font-family: Lato;
+    letter-spacing: 2px;
+    word-spacing: 6px;
+    color: #fff;
+    margin: 0;
+    padding-top: 2.4em;
+    cursor: default;
+}
+
 .app-title {
   text-align: center;
   font-weight: 400;
@@ -27,7 +40,8 @@ input:focus, button:focus {
   letter-spacing: 2px;
   word-spacing: 6px;
   color: #676767;
-  margin-top: 2.3em;
+  margin: 0;
+  padding-top: 2.4em;
   cursor: default;
 }
 
@@ -38,4 +52,56 @@ select,
 div,
 a {
   -webkit-tap-highlight-color: rgba(0,0,0,0);
+}
+
+.dark-App {
+    animation: darkBackground 1s;
+    background: #3f3f3f;
+}
+
+.App {
+    animation: lightBackground 1s;
+}
+
+
+/* Night Mode Theme animations */
+@keyframes lightTheme{
+    from{
+        left: 0;
+        background: #3f3f3f;
+    } 
+    to{
+        left: 50px;
+        background: #fff
+    }
+  }
+  
+@keyframes darkTheme{
+    from{
+        left: 50px;
+        background: #fff
+    } 
+    to{
+        left: 0;
+        background: #3f3f3f;
+  
+    }
+}
+  
+@keyframes darkBackground {
+    from{
+      background: #fff
+    } 
+    to{
+      background: #3f3f3f;
+    }
+}
+  
+@keyframes lightBackground {
+    from{
+      background: #3f3f3f
+    } 
+    to{
+      background: #fff;
+    }
 }
